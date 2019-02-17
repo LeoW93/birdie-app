@@ -22,14 +22,14 @@ module.exports = () => {
 
   app.use(bodyParser.json({limit: '5mb'}));
 
-  app.use(webpackDevMiddleware(compiler, {publicPath: '/', logLevel: 'info'}));
+  app.use(webpackDevMiddleware(compiler, {publicPath: '/', logLevel: 'silent'}));
 
   app.get('/', (req, res) => {
     return res.render('index');
   });
 
   app.listen(port, () => {
-    console.log('Server started on ' + port);
+    console.log('Server started on port' + port);
   });
 
   return app;
